@@ -11,6 +11,7 @@
     "url": "git+https://github.com/JangRuBin2/practice_Callback.git"
   },
   "author": "",
+  "type": "module",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JangRuBin2/practice_Callback/issues"
