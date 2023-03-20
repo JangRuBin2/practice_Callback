@@ -12,16 +12,16 @@
 // const a = six("ssss");
 // console.log(a);
 
-function six(number, append) {
-  // "문자 + 숫자"를 하지 않기 위해 &&연산자 추가하여 '숫자 + 숫자'의 데이터를 얻기위한 조건들을 추가했다
-  // 하지만 if문을 남발하게 되니까 typescript로 넘어가게 됨
-  // if (typeof number == "number" && typeof append === "number") {
-  return number + append;
-}
-// 나는 숫자-숫자도 하고 싶어서 이렇게 만들었는데 만약 이런식의 함수가 수백개가 된다면...? 호출할 때만 커스터마이징 할 수는 없을까? '정적'으로 만드는게 아닌 '동적'으로 만들 수 없을까?
-function seven(number, append) {
-  return number - append;
-}
+// function six(number, append) {
+//   // "문자 + 숫자"를 하지 않기 위해 &&연산자 추가하여 '숫자 + 숫자'의 데이터를 얻기위한 조건들을 추가했다
+//   // 하지만 if문을 남발하게 되니까 typescript로 넘어가게 됨
+//   // if (typeof number == "number" && typeof append === "number") {
+//   return number + append;
+// }
+// // 나는 숫자-숫자도 하고 싶어서 이렇게 만들었는데 만약 이런식의 함수가 수백개가 된다면...? 호출할 때만 커스터마이징 할 수는 없을까? '정적'으로 만드는게 아닌 '동적'으로 만들 수 없을까?
+// function seven(number, append) {
+//   return number - append;
+// }
 // 덧셈, 곱셈, 뺄셈을 모두 동적으로 추가 가능한 함수는 없을까?
 // 지금까지는 실행구문을 먼저 만들어 놓고 필요할 때 '호출' 할 때 사용 했다 -> '정적'으로 제작, 필요할 때 '호출', 'callback'
 // function eight(number, append, callback) {
@@ -69,12 +69,32 @@ const allCalculator = {
 console.log(allCalculator.number(1, 2, allCalculator.multiplyCalculator));
 // 이 객체를 계산기에 집어넣으면 그게 계산기 아닌가? 버튼에 1,2를 입력한 숫자 값으로 넣고 버튼 클릭시 return으로 위처럼 함수를 호출하면 된다고 생각
 
+// 예를 들어 이런느낌으로? 내 생각임
+// let button = document.getElementById("btn");
+// button.addEventListener("click", 함수);
+
+// function calculator(number, number2, callback) {
+//   let a = number;
+//   let b = number2;
+//   return callback(a, b);
+//   function plusCalculator(a, b) {
+//     return a + b;
+//   }
+// } 안되넹
+// calculator(1, 2, plusCalculator());
 // let calculatorKey = Object.keys(allCalculator);
 // console.log(calculatorKey);
 
-// function calculator() {
-//   let a =
+// function myFeeling(feel, play, dothis) {
+//   let feel;
+//   let play;
+//   return dothis(feel, play);
 // }
+
+// function dothis(feel, play) {
+//   "만약 내 기분이" + feel + "하다면, 나는" + play + "을 하며 놀 것이다";
+// }
+// console.dir(myFeeling("행복", "노래", dothis));
 
 // 인자를 전달 받았기 때문에 매개변수를 담지 않아도 됨
 // 이런식으로도 가능해짐

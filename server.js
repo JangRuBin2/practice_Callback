@@ -14,7 +14,7 @@ const sever = http.createServer(function (request, response) {
   body += "<h1>hello world</h1>";
   body += "</body>";
   body += "</html>";
-
+  // 문서는 문서가 아니었다 문서는 string덩어리 였다
   response.statusCode = 200;
   response.setHeader("content-type", "text/plain");
   response.end("hello world");
