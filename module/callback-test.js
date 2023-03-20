@@ -42,31 +42,31 @@
 // 그러면 계산기를 만드려 하면 버튼 하나에 함수(onclick)하여 display에 숫자를 추가하는 방식으로 할 수 있겠네 그리고 +,- 등의 사칙연산은 display에 넣어진 값들을 핸들링 하는 이벤트로 만들면 되겠다.
 
 // 1트 객체 안에 함수를 담아서 object.key()메서드를 활용해 key값을 [배열]로 저장하고 배열 값에 따라 결과값을 다르게 해보고 싶다 -> 이거는 객체에 담을게 아니라 함수안에 함수를 넣고 if돌렸어야지 멍청아
-const allCalculator = {
-  number: function (number, number2, callback) {
-    let a = number;
-    let b = number2;
-    return callback(a, b);
-  },
-  // 덧셈을 해주는 함수
-  plusCalculator: function (a, b) {
-    return a + b;
-  },
-  // 곱셈을 해주는 함수
-  multiplyCalculator: function (a, b) {
-    return a * b;
-  },
-  // 뺄셈을 해주는 함수
-  subtractionCalculator: function (a, b) {
-    return a - b;
-  },
-  // 나누기를 해주는 함수
-  divideCalculator: function (a, b) {
-    return a / b;
-  },
-};
-// 이런 식으로 가능은 함
-console.log(allCalculator.number(1, 2, allCalculator.multiplyCalculator));
+// const allCalculator = {
+//   number: function (number, number2, callback) {
+//     let a = number;
+//     let b = number2;
+//     return callback(a, b);
+//   },
+//   // 덧셈을 해주는 함수
+//   plusCalculator: function (a, b) {
+//     return a + b;
+//   },
+//   // 곱셈을 해주는 함수
+//   multiplyCalculator: function (a, b) {
+//     return a * b;
+//   },
+//   // 뺄셈을 해주는 함수
+//   subtractionCalculator: function (a, b) {
+//     return a - b;
+//   },
+//   // 나누기를 해주는 함수
+//   divideCalculator: function (a, b) {
+//     return a / b;
+//   },
+// };
+// // 이런 식으로 가능은 함
+// console.log(allCalculator.number(1, 2, allCalculator.multiplyCalculator));
 // 이 객체를 계산기에 집어넣으면 그게 계산기 아닌가? 버튼에 1,2를 입력한 숫자 값으로 넣고 버튼 클릭시 return으로 위처럼 함수를 호출하면 된다고 생각
 
 // 예를 들어 이런느낌으로? 내 생각임
