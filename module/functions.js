@@ -29,7 +29,8 @@ function four() {
 }
 // 까보기 전에는, debuging 하기 전에는 안의 내용을 알 수 없다. -> return값을 봐야한다. -> return만 알아내면 쓸 수 있다. 굳이 함수의 내부를 들여다보지 않아도 됨
 
-// return을 안쓰는 경우
+// return이 없는 경우 -> 1+1을 한 'a의 값'만 있는 상황 -> c언어 에서는 return void, false라 함
 function five() {
+  // 동작만을 위한 함수, 더하기의 행위만 하는 함수이다. -> 예를 들면 for()문 return이 목적이 아니라 반복하는 행위가 목적
   let a = 1 + 1;
 }
