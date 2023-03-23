@@ -7,3 +7,4 @@
 
 3. 콜백지옥 직접 만들어보기 -> callback > callback.html+js
 4. Promise 비동기 통신 -> callback > promise.html+js
+   ->async 학습 필요
