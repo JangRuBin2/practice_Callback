@@ -8,7 +8,7 @@ const promise = new Promise((resolve, reject) => {
   // 보통은 무거운 일을 함 -> 네트워크에서 데이터를 받아오는데 시간이 꽤 걸림(비동기 처리가 필요)
   // 프로미스가 호출 되는 순간 executor(new Promise에 전달되는 함수)가 자동적으로 실행 됨.
   // 따라서 변수 선언과 동시에 콘솔의 doingSomething이 바로 실행 -> 우리는 이거말고 비동기 통신이 하고싶다.
-  console.log("doing something");
+  console.log("나도 프로미스 안에 있지만 즉시 실행되서 어쩔 수 없엉");
   setTimeout(() => {
     // 성공한 값을 전달하는 메서드
     resolve(
@@ -20,7 +20,7 @@ const promise = new Promise((resolve, reject) => {
         "에러가 나타났을 때 reject에 값을 담아 준다. Error()메서드는 그냥 에러만드는 메서드인 듯? -> 비동기 통신의 상태가 실패가 됨"
       )
     );
-  }, 2000);
+  }, 1000);
 });
 
 // consumer 제공 받는 사람(클라이언트) 측에선 -> then, catch, finally 를 통해 데이터를 받아올 수 있음
@@ -36,7 +36,7 @@ promise
   })
   // 위 명령이 성공하든 실패하든 마지막으로 수행하고 싶을 때 사용
   .finally(() => {
-    console.log("finally");
+    console.log("난 무조건 한번 실행 돼");
   });
 
 // 프로미스 안에도 프로미스를 담을 수 있다
@@ -52,7 +52,7 @@ fetchNumber
   .then((num) => {
     // 가공 한 값을 다시 promise를 통해 핸들링
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(num - 1), 1000);
+      setTimeout(() => resolve(num - 1), 3000);
     });
   })
   // 어떻게 될 거 같은 값을 콘솔에 담았어
@@ -60,7 +60,7 @@ fetchNumber
   // 혹시라도 에러 뜨면 잡아줘
   .catch((error) => new Error(console.log("연결 안된 듯?")))
   // 그냥 넣어 봄
-  .finally(() => console.log("난 그냥 관종"));
+  .finally(() => console.log("난 무조건 한번 실행 돼2"));
 
 // 암탉이 최초로 promise 생성
 const getHen = () =>
