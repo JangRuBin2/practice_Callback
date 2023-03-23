@@ -18,3 +18,13 @@
 //     });
 //   }, 2000);
 // });
+
+// const promise = new Promise((resolve, reject) => {
+//   console.log("바로 실행될 놈");
+//   const id = prompt("아이디를 입력 해봐");
+//   const pw = prompt("비밀번호를 입력 해봐");
+//   // console.log(id);
+//   resolve(id + pw);
+
+//   console.log(resolve);
+// });
