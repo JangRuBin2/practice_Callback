@@ -26,30 +26,31 @@ const promise = new Promise((resolve, reject) => {
 // consumer 제공 받는 사람(클라이언트) 측에선 -> then, catch, finally 를 통해 데이터를 받아올 수 있음
 // promise가 성공적으로 실행되면(then) -> value(값)을 받아옴 : 이행(fulfilled) 상태
 promise
-  // 잘 실행 됐을 때 사용하는 메서드
+  // 잘 실행 됐을 때(resolve) 사용하는 메서드
   .then((value) => {
     console.log(value);
   })
-  // 무언가가 발생했을 때 사용하는 메서드
+  // 무언가가 발생했을 때(reject) 사용하는 메서드
   .catch((error) => {
     console.log(error);
   })
-  // 윗의 명령이 성공하든 실패하든 마지막으로 수행하고 싶을 때 사용
+  // 위 명령이 성공하든 실패하든 마지막으로 수행하고 싶을 때 사용
   .finally(() => {
     console.log("finally");
   });
 
+// 프로미스 안에도 프로미스를 담을 수 있다
 const fetchNumber = new Promise((resolve, reject) => {
-  // 성공했다 치고 1이란 데이터를 담아서 보내보자
+  // 성공했다 치고 1이란 숫자 데이터를 담아서 보내보자
   setTimeout(() => resolve(1), 1000);
 });
-// 아래와 같은 식으로 여러개의 프로미스를 연결할 수도 있다. -> 복잡해 보이지만 이건 자바스크립트의 특성이니까 악으로 깡으로 견뎌라
+// then이 많아지겠지만 콜백지옥보다 직관적이라서 유지보수에 편할 것 같다. -> 복잡해 보이지만 이건 자바스크립트의 특성이라 생각함
 fetchNumber
-  // 성공했으니까 '1'데이터를 요로케 요로케 가공 해줘
+  // resolve를 통해 받은 num('1'데이터)을 요로케 요로케 가공 해줘
   .then((num) => num * 2)
   .then((num) => num * 3)
   .then((num) => {
-    // 이런식으로 하면 어떻게 될 거 같아?
+    // 가공 한 값을 다시 promise를 통해 핸들링
     return new Promise((resolve, reject) => {
       setTimeout(() => resolve(num - 1), 1000);
     });
